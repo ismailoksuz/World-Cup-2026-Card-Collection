@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WC26 Album - Panini Collection</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- SPLASH SCREEN -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <h1 class="splash-title">WC26</h1>
+            <p class="splash-subtitle">Collection</p>
+            <button id="enter-btn" class="btn-enter">ENTER</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP -->
+    <div id="main-app" class="main-app hidden">
+        <!-- HEADER -->
+        <header class="app-header">
+            <h1 class="logo-text">WC26</h1>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-value" id="collected-count">0</span>
+                    <span class="stat-label">Collected</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="duplicate-count">0</span>
+                    <span class="stat-label">Duplicates</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- NAVIGATION -->
+        <nav class="app-nav">
+            <button class="nav-btn active" data-view="home">🏠 Home</button>
+            <button class="nav-btn" data-view="pack">📦 Open Pack</button>
+            <button class="nav-btn" data-view="album">📖 Album</button>
+            <button class="nav-btn" data-view="teams">🏆 Teams</button>
+        </nav>
+
+        <!-- HOME VIEW -->
+        <div id="home-view" class="view active">
+            <div class="home-hero">
+                <h2>2026 FIFA World Cup™</h2>
+                <p>Collect all 48 teams and their players!</p>
+            </div>
+            <div class="home-cards">
+                <div class="home-card" data-navigate="pack">
+                    <div class="home-card-icon">📦</div>
+                    <h3>Open Pack</h3>
+                    <p>Open a pack and discover 10 new cards for your collection</p>
+                </div>
+                <div class="home-card" data-navigate="album">
+                    <div class="home-card-icon">📖</div>
+                    <h3>Album</h3>
+                    <p>Browse your collection and track your progress</p>
+                </div>
+                <div class="home-card" data-navigate="teams">
+                    <div class="home-card-icon">🏆</div>
+                    <h3>Teams</h3>
+                    <p>View cards by team</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PACK VIEW -->
+        <div id="pack-view" class="view">
+            <div class="pack-container">
+                <h2>PACK OPENING</h2>
+                <div id="pack-wrapper">
+                    <div id="pack-card" class="pack-card">
+                        <div class="pack-card-bg"></div>
+                        <div class="pack-card-content">
+                            <img src="assets/wc-logo.avif" alt="WC26" class="pack-logo">
+                            <h3>WC26 PACK</h3>
+                            <p>Tap to open</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="opened-cards" class="opened-cards hidden"></div>
+                <button id="collect-all-btn" class="btn-collect hidden">Collect All</button>
+                <button id="new-pack-btn" class="btn-new-pack hidden">Open Another Pack</button>
+            </div>
+        </div>
+
+        <!-- ALBUM VIEW -->
+        <div id="album-view" class="view">
+            <div class="view-header">
+                <button class="btn-back" data-navigate="home">← Home</button>
+                <h2>Album</h2>
+            </div>
+            <div class="album-stats">
+                <span id="album-progress">0 / 0 cards collected</span>
+            </div>
+            <div id="album-grid" class="album-grid"></div>
+        </div>
+
+        <!-- TEAMS VIEW -->
+        <div id="teams-view" class="view">
+            <div class="view-header">
+                <button class="btn-back" data-navigate="home">← Home</button>
+                <h2>Teams</h2>
+            </div>
+            <div class="teams-layout">
+                <aside class="teams-sidebar">
+                    <h3>Select a team</h3>
+                    <div id="teams-list" class="teams-list"></div>
+                </aside>
+                <main class="teams-content">
+                    <div id="team-detail">
+                        <p>Select a team from the sidebar to view their cards</p>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- PLAYER MODAL -->
+    <div id="player-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="src/script.js"></script>
+</body>
+</html>
